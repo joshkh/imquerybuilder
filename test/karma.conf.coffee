@@ -27,6 +27,9 @@ module.exports = (config) ->
       'bower_components/angular-sanitize/angular-sanitize.js'
       'bower_components/angular-touch/angular-touch.js'
       'bower_components/imjs/js/im.js'
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js'
+      'bower_components/underscore/underscore.js'
+      'bower_components/underscore.inflection/lib/underscore.inflection.js'
       'bower_components/angular-mocks/angular-mocks.js'
       # endbower
       # bower:coffee

@@ -3,62 +3,178 @@
   <h1>imSearch</h1> 
 
 
+    <im-toggle>GO AWAY</im-toggle>
+
 
 
 <!-- Single button -->
 
 
 
-<div class="row ">
-  <div class="col-xs-12 bg1 left-xs">
-    <div class="row bottom-xs">
-      <div class="col-xs-4 right-xs">
-        <span class="desc" style="text-align: center">Starting with</span>
-      </div>
-      <div class="col-xs-4">
+<!-- First Row -->
+<div class="flexy-container">
+
+  <div class="flexy-item fixed">
+    <p>Starting with</p>
+  </div>
+
+  <div class="flexy-item">
+
+    <div class="flexy-container">
+
+      <div class="flexy-item">
         <label style="display: block; text-align: left">
-          <i class="fa fa-edit"></i>Cardinality
+          <i class="fa fa-edit"></i>
+          <span ng-click="isCollapsed = !isCollapsed">Cardinality</span>
         </label>
-        <input type="text"></input>
+        <div>
+          <select>
+            <option ng-repeat="rule in cardinality">{{rule}}</option>
+          </select>
+        </div>
       </div>
-      <div class="col-xs-4">
+
+      <div class="flexy-item">
         <label style="display: block; text-align: left">
           <i class="fa fa-edit"></i>Item Type
         </label>
+        <input ng-click="isCollapsed = !isCollapsed" type="text" ng-model="root"></input>
+      </div>
+
+      <div class="flexy-item">
+        <label style="display: block; text-align: left">
+          <i class="fa fa-edit"></i>Which {{root}}?
+        </label>
         <input type="text"></input>
       </div>
+
     </div>
+
+  </div>
+
+</div>
+
+<!-- All Classes -->
+<div collapse="isCollapsed">
+
+  <div class="flex-container">
+   <div class="flex-item" ng-repeat="(letter, classes) in alphabetical">
+   <span>{{letter}}</span>
+    <ul>
+      <li ng-click="setRoot(class)" ng-repeat="class in classes">{{class}}</li>
+    </ul>
+   </div>
+  </div>
+
+</div>
+
+
+
+<!-- Second Row -->
+<div class="flexy-container">
+
+  <div class="flexy-item fixed">
+    <p>Show me its</p>
+  </div>
+
+  <div class="flexy-item">
+
+    <div class="flexy-horizontal-container left-children">
+
+      <div ng-repeat="attribute in attributes" class="flexy-horizontal-item btn-group no-stretch" data-toggle="buttons">
+        <label class="btn btn-success" style="background: grey; border: none">
+          {{attribute}}
+        </label>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="flex-container">
+ <div ng-click="addView(col)" ng-repeat="col in availableAttributes" class="flex-item">
+ {{col}}
+ </div>
+</div>
+
+
+
+
+
+<!-- <div id="flexbox">
+  <p>Child 1</p>
+  <p>Child 2</p>
+  <p>Child 3</p>
+</div> -->
+
+<br />
+
+<button class="btn btn-default" ng-click="runQuery()">Run Query</button>
+
+<div class="panel">
+  <div class="panel-body">
+    <pre>
+      {{query}}
+    </pre>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-xs-12 bg1 left-xs">
-    <div class="row bottom-xs">
-      <div class="col-xs-4 right-xs">
-        <span class="desc" style="text-align: center">show me its</span>
-      </div>
-      <div class="col-xs-2"></div>
-      <div class="col-xs-2">
-        <label style="display: block; text-align: left">
-          <i class="fa fa-edit"></i>Cardinality
-        </label>
-        <input type="text"></input>
-      </div>
-      <div class="col-xs-2">
-        <label style="display: block; text-align: left">
-          <i class="fa fa-edit"></i>Item Type
-        </label>
-        <input type="text"></input>
-      </div>
-      <div class="col-xs-2">
-        <label style="display: block; text-align: left">
-          <i class="fa fa-edit"></i>Item Type
-        </label>
-        <input type="text"></input>
-      </div>
+<!-- ALPHABET -->
+
+<!-- <p>Classes {{classes}}</p> -->
+
+
+<!--   <div class="btn-group" dropdown is-open="status.isopen">
+    <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+      Button dropdown <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+
+
+            <div class="panel panel-default">
+  <div class="panel-body">
+    Basic panel example
+  </div>
+</div>
+
+    </ul>
+  </div>
+ -->
+
+<!-- 
+<div class="panel">
+  <div class="panel-body">
+    <div class="wrapper">
+      <ul>
+        <li ng-repeat="item in classes">{{item}}</li>
+      </ul>
     </div>
   </div>
 </div>
+ -->
+
+
+
+<!-- <div class="panel">
+  <div class="panel-body">
+    <div ng-repeat="(key, value) in alphabetical" class="wrapper">
+      <span>{{key}}<span>
+      <ul>
+        <li ng-repeat="item in value">{{item}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+ -->
 
 
 <!-- 

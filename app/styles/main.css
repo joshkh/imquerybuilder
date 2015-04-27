@@ -7,6 +7,7 @@
 
 body {
   padding: 0;
+  color: white;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -92,7 +93,7 @@ body {
 body {
   background: #f1f1f1;
   font-family: 'Open Sans', sans-serif;
-  color: white;
+  color: black;
 }
 
 .nopadding {
@@ -133,6 +134,23 @@ input[type=text] {
 }
 
 
+select {
+  /*background: #ECECEC;*/
+  border: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  border-left: 0px solid rgba(255, 255, 255, 0.6);
+  padding: 5px;
+  background: white;
+  background: transparent;
+  font-size: 22px;
+  color: white;
+  text-align: left;
+  width: 95%;
+}
+
+
+
 input[type=text]:focus {
   /*background: #ECECEC;*/
   border: 0;
@@ -170,8 +188,17 @@ label {
   font-size: 12px;
 }
 
+option {
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
 
 
+/*
 
 .btn {
   border-radius: 0px;
@@ -186,3 +213,278 @@ label {
   width: 100%;
 }
 
+*/
+
+
+/* allow room for 3 columns */
+/*  ul
+  {
+    width: 30em;
+  }   float & allow room for the widest item 
+  ul li
+  {
+    float: left;
+    width: 10em;
+  }  /* stop the float */*/
+  br
+  {
+    clear: left;
+  }  /* separate the list from subsequent markup */
+  div.wrapper
+  {
+    margin-bottom: 1em;
+    width: 10em;
+    float: left;
+  }
+
+  li {
+    font-size: 12px;
+  }
+
+
+
+
+
+.flexy-container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -moz-box-pack: start;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: start;
+  justify-content: space-between;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-box-align: start;
+  -moz-box-align: start;
+  -webkit-align-items: center;
+  -ms-flex-align: start;
+  align-items: center;
+}
+
+.flexy-item {
+    background: #2c79be;
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: stretch;
+    width: 10%;
+}
+
+.flexy-horizontal-container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    }
+
+.flexy-horizontal-item {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+    }
+
+
+.left-children {
+  align-items: flex-start;
+}
+
+.no-stretch {
+  flex: 0 0 auto;
+}
+
+.fixed {
+  flex: 0 0 175px;
+  background: #2c79be;
+}
+
+/*.flexy-container > .flexy-item:first-child {
+    background: #2c79be;
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 0 300px;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: stretch;
+    width: 10%;
+}
+
+.flexy-container > .flexy-item:not(:first-child) {
+    background: grey;
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: stretch;
+    width: 10%;
+}*/
+
+
+.togpanel {
+  background: #2c79be;
+  font-size: 14px;
+}
+
+
+
+.fill-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* align items in Main Axis */
+    align-items: stretch; /* align items in Cross Axis */
+    align-content: stretch; /* Extra space in Cross Axis */
+}
+
+
+.flexbox-item
+{
+    padding: 8px;
+}
+.flexbox-item-grow
+{
+    flex: 1; /* same as flex: 1 1 auto; */
+}
+
+
+.flex-container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    max-height: 700px;
+    height: 700px;
+    }
+
+.flex-item:nth-child(1) {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: stretch;
+    }
+
+
+
+/*
+    Legacy Firefox implementation treats all flex containers
+    as inline-block elements.
+*/
+
+@-moz-document url-prefix() {
+
+
+.flex-container {
+    width: 100%;
+    -moz-box-sizing: border-box;
+    }
+
+}
+
+
+flex-container.ul:not(:first-child) {
+    padding-left: 10px;
+}
