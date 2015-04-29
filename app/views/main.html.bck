@@ -1,0 +1,362 @@
+
+
+  <h1>imSearch</h1> 
+
+
+<button ng-click="test()" class="btn btn-success">EXPLODE</button>
+<!-- <button ng-click="svgAddClass()" class="btn btn-success">Add Class</button>
+<button ng-click="svgAddClass2()" class="btn btn-success">Add Line</button>
+<button ng-click="addNode()" class="btn btn-success">Add Node</button>
+<!-- <div id="d3vis"></div> -->
+<!-- <svg width="100%" height="500" id="snapper"></svg> -->
+
+
+
+<!-- Single button -->
+
+<div class="panel">
+  <div class="panel-body">
+    <pre>
+      {{tree}}
+    </pre>
+  </div>
+</div>
+
+<select ng-model="blah" ng-options="item as item for item in items"></select>
+
+
+
+<script type="text/ng-template"  id="tree_item_renderer2.html">
+  <section>
+
+
+    <div class="flexy-container">
+
+      <div class="flexy-item fixed">
+        <h3>Item is {{data.name}}</h3>
+      </div>
+
+      <div class="flexy-item">
+
+        <div class="flexy-container">
+
+          <div class="flexy-item">
+            <label style="display: block; text-align: left">
+              <i class="fa fa-edit"></i>Relationship
+            </label>
+            <div>
+              <select ng-model="whoknows" ng-options="rule as rule for rule in getCollections(data.name)"></select>
+
+            </div>
+          </div>
+
+          <div class="flexy-item">
+            <label style="display: block; text-align: left">
+              <i class="fa fa-edit"></i>Item Type
+            </label>
+            <input ng-click="isCollapsed = !isCollapsed" type="text" ng-model="root" />
+          </div>
+
+          <div class="flexy-item">
+            <button ng-click="add(data, whoknows)" class="btn btn-success">Add Node</button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  <section style="padding-left: 25px" ng-repeat="data in data.nodes" ng-include="'tree_item_renderer2.html'">
+
+  </section>
+
+    
+  </section>
+
+</script>
+
+
+<!-- START IT -->
+<section ng-repeat="data in tree" ng-include="'tree_item_renderer2.html'">
+
+<!--   <div class="flexy-container">
+
+    <div class="flexy-item fixed">
+      <h3>Item is {{data.name}}</h3>
+    </div>
+
+    <div class="flexy-item">
+
+      <div class="flexy-container">
+
+        <div class="flexy-item">
+          <label style="display: block; text-align: left">
+            <i class="fa fa-edit"></i>
+            <span ng-click="isCollapsed = !isCollapsed">Cardinality</span>
+          </label>
+          <div>
+            <select ng-model="somethingselected">
+              <option ng-repeat="rule in cardinality">{{rule}}</option>
+            </select>
+
+          </div>
+        </div>
+
+        <div class="flexy-item">
+          <h1>HELLO</h1>
+        </div>
+
+        <div class="flexy-item">
+          <label style="display: block; text-align: left">
+            <i class="fa fa-edit"></i>Item Type
+          </label>
+          <input ng-click="isCollapsed = !isCollapsed" type="text" ng-model="root" />
+        </div>
+
+        <div class="flexy-item">
+          <label style="display: block; text-align: left">
+            <i class="fa fa-edit"></i>Which {{root}}?
+          </label>
+          <input type="text" />
+        </div>
+
+      </div>
+
+    </div>
+
+  </div> -->
+  
+</section>
+
+
+
+
+<h1>imLegacy</h1>
+
+<div class="flexy-container">
+
+  <!-- Fixed column -->
+  <div class="flexy-item fixed">
+    <h3>Show me</h3>
+  </div>
+
+  <!-- The rest of the controls -->
+  <div class="flexy-item">
+    <div class="flexy-container">
+
+
+      <div class="flexy-item">
+        <label style="display: block; text-align: left">
+          <i class="fa fa-edit"></i>
+          <span ng-click="isCollapsed = !isCollapsed">Items</span>
+        </label>
+        <div>
+
+<!--           <select>
+            <option ng-repeat="rule in cardinality">{{rule}}</option>
+          </select> -->
+        </div>
+      </div>
+
+      <div class="flexy-item">
+        <label style="display: block; text-align: left">
+          <i class="fa fa-edit"></i>Item Type
+        </label>
+        <input ng-click="isCollapsed = !isCollapsed" type="text" ng-model="root" />
+      </div>
+
+      <div class="flexy-item">
+        <label style="display: block; text-align: left">
+          <i class="fa fa-edit"></i>Which {{root}}?
+        </label>
+        <input type="text" />
+      </div>
+    </div>
+
+
+
+    </div>
+  </div>
+
+
+</div>
+
+<h1>imLegacy</h1>
+
+<queryitem></queryitem>
+
+
+
+
+
+  <!-- All Classes -->
+  <div collapse="isCollapsed">
+
+    <div class="flex-container">
+     <div class="flex-item" ng-repeat="(letter, classes) in alphabetical">
+     <span>{{letter}}</span>
+      <ul>
+        <li ng-click="setRoot(class)" ng-repeat="class in classes">{{class}}</li>
+      </ul>
+     </div>
+    </div>
+
+  </div>
+
+
+
+  <!-- Second Row -->
+  <div class="flexy-container">
+
+    <div class="flexy-item fixed">
+      <p>Show me its</p>
+    </div>
+
+    <div class="flexy-item">
+
+      <div class="flexy-horizontal-container left-children">
+
+        <div ng-repeat="attribute in attributes" class="flexy-horizontal-item btn-group no-stretch" data-toggle="buttons">
+          <label class="btn btn-success" style="background: grey; border: none">
+            {{attribute}}
+          </label>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<button ng-click="addNode()" class="btn btn-success">Add Node</button>
+
+
+
+
+
+
+
+<!-- 
+<div class="flex-container">
+ <div ng-click="addView(col)" ng-repeat="col in availableAttributes" class="flex-item">
+ {{col}}
+ </div>
+</div> -->
+
+
+
+
+
+<!-- <div id="flexbox">
+  <p>Child 1</p>
+  <p>Child 2</p>
+  <p>Child 3</p>
+</div> -->
+
+<br />
+
+<button class="btn btn-default" ng-click="runQuery()">Run Query</button>
+
+
+
+<!-- ALPHABET -->
+
+<!-- <p>Classes {{classes}}</p> -->
+
+
+<!--   <div class="btn-group" dropdown is-open="status.isopen">
+    <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+      Button dropdown <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+
+
+            <div class="panel panel-default">
+  <div class="panel-body">
+    Basic panel example
+  </div>
+</div>
+
+    </ul>
+  </div>
+ -->
+
+<!-- 
+<div class="panel">
+  <div class="panel-body">
+    <div class="wrapper">
+      <ul>
+        <li ng-repeat="item in classes">{{item}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+ -->
+
+
+
+<!-- <div class="panel">
+  <div class="panel-body">
+    <div ng-repeat="(key, value) in alphabetical" class="wrapper">
+      <span>{{key}}<span>
+      <ul>
+        <li ng-repeat="item in value">{{item}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+ -->
+
+
+<!-- 
+<div class="row ">
+
+  <div class="col-xs-6 bg1 left-xs">
+      <div class="row bottom-xs">
+        <div class="col-xs-4 right-xs">
+          <span class="desc" style="text-align: center">Show me its</span>
+        </div>
+        <div class="col-xs-4">
+          <label style="display: block; text-align: left">
+            <i class="fa fa-edit">
+            </i>Cardinality</label>
+          <div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+  <span data-bind="label">a</span>&nbsp;<span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+  <li><a>some</a></li>
+  <li><a>a list of</a></li>
+  <li><a>a single</a></li>
+  </ul>
+</div>
+        </div>
+        <div class="col-xs-4">
+          <label style="display: block; text-align: left">
+            <i class="fa fa-edit">
+            </i>Item Type</label>
+          <input type="text"></input>
+        </div>
+      </div>
+  </div>
+
+  <div class="col-xs-6 bg1 left-xs">
+    <div class="row bottom-xs">
+      <div class="col-xs-6 right-xs">
+        <span class="desc" style="text-align: center">show me</span>
+      </div>
+      <div class="col-xs-6">
+        <label style="display: block; text-align: left">
+          <i class="fa fa-edit">
+          </i>Attributes</label>
+        <input type="text"></input>
+      </div>
+    </div>
+</div>
+</div>
+ -->
+
