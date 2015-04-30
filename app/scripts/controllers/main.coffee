@@ -19,7 +19,7 @@ angular.module 'testApp'
 
 
     $scope.test = ->
-      results = imtools.info("Protein").then (resolved) ->
+      imtools.info("Protein").then (resolved) ->
         console.log "resolved inside test", resolved
 
       # console.log "imtools", imtools.drill("Protein").then (result) ->

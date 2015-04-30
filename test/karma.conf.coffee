@@ -32,6 +32,7 @@ module.exports = (config) ->
       'bower_components/underscore.inflection/lib/underscore.inflection.js'
       'bower_components/snap.svg/dist/snap.svg-min.js'
       'bower_components/d3/d3.js'
+      'bower_components/bluebird/js/browser/bluebird.js'
       'bower_components/angular-mocks/angular-mocks.js'
       # endbower
       # bower:coffee

@@ -8,26 +8,22 @@
  # Service in the testApp.
 ###
 angular.module 'testApp'
-  .service 'imtools', (myimjs, $cacheFactory) ->
+  .service 'imtools', (myimjs, $cacheFactory, $q) ->
 
   	cache = $cacheFactory 'fields'
 
   	helpers =
+
   		info: (classname) ->
+  			deferred = $q.defer()
 
-  			# Return the cached version if we have it.
   			if cache.get(classname)?
-  				console.log "FOUND IN CACHE"
-  				return cache.get(classname)
+  				deferred.resolve cache.get(classname)
   			else
-  				console.log "NOT FOUND IN CACHE"
+  				myimjs.get("model/#{classname}").then (results) ->
+  					deferred.resolve results
+  					cache.put results.id, results
 
-	  			# Otherwise run and store
-			  	myimjs.get("model/#{classname}").then (results) ->
-			  		cache.put results.id, results
-			  		results
+  			deferred.promise
+	
 
-
-
-
-    # AngularJS will instantiate a singleton by calling "new" on this function
